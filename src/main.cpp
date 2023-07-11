@@ -1,9 +1,16 @@
 #include <Arduino.h>
+#include <Display.h>
 
-void setup() {
-  // put your setup code here, to run once:
+Display display;
+
+void setup()
+{
+  Serial.begin(MONITOR_SPEED);
+  display.init();
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop()
+{
+  display.update(random(0, 50), random(0, 50));
+  delay(2000);
 }
