@@ -1,0 +1,42 @@
+{
+	"version": 1,
+	"author": "Lloyd",
+	"editor": "wokwi",
+	"parts": [
+		{
+			"type": "wokwi-esp32-devkit-v1",
+			"id": "esp",
+			"top": -111.37,
+			"left": -8.06,
+			"rotate": 90,
+			"attrs": {}
+		},
+		{
+			"type": "board-ssd1306",
+			"id": "oled1",
+			"top": 103.1,
+			"left": 35.17,
+			"attrs": { "i2cAddress": "0x3c" }
+		},
+		{
+			"type": "wokwi-ntc-temperature-sensor",
+			"id": "ntc1",
+			"top": 108.41,
+			"left": -110.1,
+			"rotate": 270,
+			"attrs": {}
+		}
+	],
+	"connections": [
+		["esp:TX0", "$serialMonitor:RX", "", []],
+		["esp:RX0", "$serialMonitor:TX", "", []],
+		["oled1:SCL", "esp:D19", "yellow", ["v-53.97", "h-27.42"]],
+		["esp:D23", "oled1:SDA", "white", ["v16.17", "h-10.95"]],
+		["ntc1:GND", "esp:GND.2", "black", ["h-16.6", "v-147.11", "h73.44"]],
+		["oled1:VCC", "esp:3V3", "red", ["v-44.37", "h-115.05"]],
+		["esp:GND.2", "oled1:GND", "black", ["v-11.97", "h-73.14", "v125.13", "h145.71"]],
+		["ntc1:OUT", "esp:D15", "green", ["h47.14", "v-38.48"]],
+		["ntc1:VCC", "esp:3V3", "red", ["v-14.9", "h37.74"]]
+	],
+	"dependencies": {}
+}
