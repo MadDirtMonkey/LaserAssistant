@@ -6,7 +6,7 @@
 
 #define SSD1306_NO_SPLASH
 
-Adafruit_SSD1306 screen(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+Adafruit_SSD1306 screen(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, SCREEN_RESET_PIN);
 
 void Display::init()
 {
@@ -19,16 +19,34 @@ void Display::init()
     for (;;)
       ; // Don't proceed, loop forever
   }
-
-  screen.setTextSize(1);      // Normal 1:1 pixel scale
-  screen.setTextColor(WHITE); // Draw white text
 }
 
 void Display::update(int temperature, int flowRate)
 {
   screen.clearDisplay();
+
+  screen.setTextSize(1);
+  screen.setTextColor(WHITE);
   screen.setCursor(0, 0); // Start at top-left corner
   screen.printf("Temperature: %i%cC\n", temperature, (char)247);
   screen.printf("Flow: %iL/min\n", flowRate);
+  screen.display();
+}
+
+void Display::showError(const char *errorMessage)
+{
+  screen.fillRect(12, 15, 104, 24, WHITE); // Draw background
+  screen.setTextColor(BLACK);
+  screen.setTextSize(2);
+  screen.setCursor(18, 20);
+  screen.println("WARNING!");
+
+  screen.setTextSize(1);
+  int msgWidth = strlen(errorMessage) * 6;                                                    // Width of error message in pixels
+  int startPos = msgWidth > 127 ? 0 : (128 - msgWidth) / 2;                                   // Start position of error message
+  screen.fillRect(max(0, startPos - 4), 43, msgWidth + 8, (msgWidth > 127 ? 24 : 12), WHITE); // Draw background
+  screen.setCursor(startPos, 45);
+  screen.println(errorMessage);
+
   screen.display();
 }

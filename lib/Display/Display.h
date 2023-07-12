@@ -8,6 +8,7 @@ class Display
 public:
   void init();
   void update(int temperature, int flowRate);
+  void showError(const char *errorMessage);
 };
 
 #endif

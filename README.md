@@ -1,10 +1,11 @@
 # LaserAssistant
+
 ![Work in Progress](https://img.shields.io/badge/-Work%20In%20Progress-orange)
 
 LaserAssistant is an ESP32-based CO2 laser cutter assistant that monitors and controls various parameters of the laser cutter to ensure optimal performance and safety. It provides real-time monitoring, temperature control, data visualization, safety interlocks, and support for additional features such as motorized Z adjustable cutting beds and laser autofocus.
 
-
 ## Goals
+
 1. Monitor coolant temperature and flow
 2. Display various data on a screen
 3. Interlocks to prevent damage to the laser if coolant temperature or flow is outside of safe parameters
@@ -14,8 +15,7 @@ LaserAssistant is an ESP32-based CO2 laser cutter assistant that monitors and co
 7. Support autofocus
 8. Updatable OTA
 
-
-## Features
+## Feature wishlist
 
 - **Coolant Monitoring**: LaserAssistant monitors the coolant temperature and flow rate to ensure efficient cooling of the laser. It provides real-time updates on the status of the coolant system.
 
@@ -30,7 +30,6 @@ LaserAssistant is an ESP32-based CO2 laser cutter assistant that monitors and co
 - **Autofocus Support**: LaserAssistant includes support for autofocus functionality, enabling automatic adjustment of the laser focus based on the material being cut. This feature simplifies the cutting process and improves accuracy.
 
 - **OTA Updates**: The system supports Over-The-Air (OTA) updates, allowing you to easily update the firmware and add new features to the LaserAssistant without the need for physical reprogramming.
-
 
 ## Getting Started
 
@@ -57,4 +56,3 @@ This project is licensed under the [GPLv3 License](LICENSE.md).
 
 - [Library/Framework/Tool Name] - Used [Library/Framework/Tool Name] for [specific functionality/reason].
 - [Author(s)] - The original creator(s) or contributor(s) of [Library/Framework/Tool Name].
-

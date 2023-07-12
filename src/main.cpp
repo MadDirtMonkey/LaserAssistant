@@ -11,6 +11,11 @@ void setup()
 
 void loop()
 {
-  display.update(random(0, 50), random(0, 50));
-  delay(2000);
+  int temp = random(0, 50);
+  int flow = random(0, 50);
+
+  display.update(temp, flow);
+  delay(1000);
+  display.showError("Coolant temp high");
+  delay(1000);
 }
