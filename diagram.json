@@ -35,8 +35,8 @@
 		["ntc1:GND", "esp:GND.2", "black", ["h-16.6", "v-147.11", "h73.44"]],
 		["oled1:VCC", "esp:3V3", "red", ["v-44.37", "h-115.05"]],
 		["esp:GND.2", "oled1:GND", "black", ["v-11.97", "h-73.14", "v125.13", "h145.71"]],
-		["ntc1:OUT", "esp:D15", "green", ["h47.14", "v-38.48"]],
-		["ntc1:VCC", "esp:3V3", "red", ["v-14.9", "h37.74"]]
+		["ntc1:VCC", "esp:3V3", "red", ["v-14.9", "h37.74"]],
+		["esp:D34", "ntc1:OUT", "green", ["v-19.97", "h-154.83", "v126.56", "h21.89"]]
 	],
 	"dependencies": {}
 }

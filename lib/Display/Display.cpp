@@ -21,16 +21,27 @@ void Display::init()
   }
 }
 
-void Display::update(int temperature, int flowRate)
+void Display::update(float temperature, float flowRate)
 {
   screen.clearDisplay();
 
   screen.setTextSize(1);
   screen.setTextColor(WHITE);
   screen.setCursor(0, 0); // Start at top-left corner
-  screen.printf("Temperature: %i%cC\n", temperature, (char)247);
+  screen.printf("Temperature: %.2f%cC\n", temperature, (char)247);
   screen.printf("Flow: %iL/min\n", flowRate);
   screen.display();
+
+  if (temperature > MAX_SAFE_TEMPERATURE)
+  {
+    delay(500);
+    showError("Temperature too high");
+  }
+  if (temperature < MIN_SAFE_TEMPERATURE)
+  {
+    delay(500);
+    showError("Temperature too low");
+  }
 }
 
 void Display::showError(const char *errorMessage)

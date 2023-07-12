@@ -7,7 +7,7 @@ class Display
 {
 public:
   void init();
-  void update(int temperature, int flowRate);
+  void update(float temperature, float flowRate);
   void showError(const char *errorMessage);
 };
 

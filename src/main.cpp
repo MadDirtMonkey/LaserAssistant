@@ -1,21 +1,31 @@
 #include <Arduino.h>
 #include <Display.h>
+#include <Thermistor.h>
 
 Display display;
+Thermistor thermistor;
+
+unsigned long lastUpdateTime = 0;
 
 void setup()
 {
   Serial.begin(MONITOR_SPEED);
   display.init();
+  thermistor.init();
+  lastUpdateTime = millis();
 }
 
 void loop()
 {
-  int temp = random(0, 50);
-  int flow = random(0, 50);
+  // Check if it's time for an update
+  unsigned long currentTime = millis();
+  if (currentTime - lastUpdateTime > 1000 || currentTime < lastUpdateTime)
+  {
+    lastUpdateTime = currentTime; // Update the last update time
 
-  display.update(temp, flow);
-  delay(1000);
-  display.showError("Coolant temp high");
-  delay(1000);
+    float temp = thermistor.read();
+    int flow = random(0, 50);
+
+    display.update(temp, flow);
+  }
 }
