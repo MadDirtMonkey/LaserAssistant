@@ -4,7 +4,6 @@
 #include <esp_adc_cal.h>
 #include <RunningMedian.h>
 
-#define R1 10000          // Other resistors value in the divider
 #define SAMPLE_COUNT 255  // Count for signal averaging
 #define DEFAULT_VREF 1100 // mV
 
@@ -50,8 +49,5 @@ float Thermistor::read()
 
   // Serial.printf("Calculated thermistor resistance: %f\n", resistance);
 
-  // Calculate the temperature using the Beta formula
-  float temperature = (1.0 / ((log(resistance / THERMISTOR_NOMINAL_RESISTANCE) / THERMISTOR_BETA_VALUE) + (1.0 / (THERMISTOR_NOMINAL_TEMPERATURE + 273.15)))) - 273.15;
-
-  return temperature;
+  return resistance;
 }

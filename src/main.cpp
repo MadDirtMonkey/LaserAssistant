@@ -23,9 +23,8 @@ void loop()
   {
     lastUpdateTime = currentTime; // Update the last update time
 
-    float temp = thermistor.read();
-    int flow = random(0, 50);
+    float res = thermistor.read();
 
-    display.update(temp, flow);
+    display.update(res);
   }
 }

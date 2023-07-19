@@ -21,43 +21,13 @@ void Display::init()
   }
 }
 
-void Display::update(float temperature, float flowRate)
+void Display::update(float resistance)
 {
   screen.clearDisplay();
 
   screen.setTextSize(1);
   screen.setTextColor(WHITE);
   screen.setCursor(0, 0); // Start at top-left corner
-  screen.printf("Temperature: %.2f%cC\n", temperature, (char)247);
-  screen.printf("Flow: %iL/min\n", flowRate);
-  screen.display();
-
-  if (temperature > MAX_SAFE_TEMPERATURE)
-  {
-    delay(500);
-    showError("Temperature too high");
-  }
-  if (temperature < MIN_SAFE_TEMPERATURE)
-  {
-    delay(500);
-    showError("Temperature too low");
-  }
-}
-
-void Display::showError(const char *errorMessage)
-{
-  screen.fillRect(12, 15, 104, 24, WHITE); // Draw background
-  screen.setTextColor(BLACK);
-  screen.setTextSize(2);
-  screen.setCursor(18, 20);
-  screen.println("WARNING!");
-
-  screen.setTextSize(1);
-  int msgWidth = strlen(errorMessage) * 6;                                                    // Width of error message in pixels
-  int startPos = msgWidth > 127 ? 0 : (128 - msgWidth) / 2;                                   // Start position of error message
-  screen.fillRect(max(0, startPos - 4), 43, msgWidth + 8, (msgWidth > 127 ? 24 : 12), WHITE); // Draw background
-  screen.setCursor(startPos, 45);
-  screen.println(errorMessage);
-
+  screen.printf("Resistance: %.2fK Ohms\n", resistance);
   screen.display();
 }
