@@ -7,7 +7,7 @@ class Display
 {
 public:
   void init();
-  void update(float resistance);
+  void update(float voltage);
 };
 
 #endif

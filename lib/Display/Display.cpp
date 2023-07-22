@@ -21,13 +21,13 @@ void Display::init()
   }
 }
 
-void Display::update(float resistance)
+void Display::update(float voltage)
 {
   screen.clearDisplay();
 
   screen.setTextSize(1);
   screen.setTextColor(WHITE);
   screen.setCursor(0, 0); // Start at top-left corner
-  screen.printf("Resistance: %.2fK Ohms\n", resistance);
+  screen.printf("Voltage: %.2fmV\n", voltage);
   screen.display();
 }

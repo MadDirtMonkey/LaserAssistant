@@ -44,10 +44,5 @@ float Thermistor::read()
   // Get the average of the 50th percentile of the samples
   float voltage = samples.getAverage(SAMPLE_COUNT / 2);
 
-  // Calculate the resistance of the thermistor
-  float resistance = THERMISTOR_NOMINAL_RESISTANCE * (3300 / voltage - 1.0);
-
-  // Serial.printf("Calculated thermistor resistance: %f\n", resistance);
-
-  return resistance;
+  return voltage;
 }
