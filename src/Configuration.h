@@ -7,6 +7,9 @@
 #define MIN_SAFE_TEMPERATURE 16 // Minimum safe temperature of the coolant (in degrees Celsius)
 #define MIN_SAFE_FLOW 10        // Minimum safe flow rate of the coolant (in litres per minute)
 
+// Other
+#define POLLING_RATE 1000 // Polling rate for readings and screen updates in milliseconds
+
 // ==============================
 // Hardware configuration
 // ==============================
@@ -27,3 +30,10 @@
 #define THERMISTOR_PIN 34                 // The analog pin connected to the thermistor
 #define THERMISTOR_NOMINAL_TEMPERATURE 25 // The nominal temperature of the thermistor (in degrees Celcius)
 #define THERMISTOR_NOMINAL_RESISTANCE 10  // The nominal resistance of the thermistor (in K ohms)
+
+// Buzzer configuration
+#define BUZZER_PIN 16 // The pin number for the buzzer
+
+// Flow sensor configuration
+#define FLOW_SENSOR_PIN 18                 // The pin number for the flow sensor
+#define FLOW_SENSOR_CALIBRATION_FACTOR 7.5 // The number of pulses per L/min

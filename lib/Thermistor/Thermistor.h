@@ -1,5 +1,5 @@
-#ifndef TEMPERATURE_H
-#define TEMPERATURE_H
+#ifndef THERMISTOR_H
+#define THERMISTOR_H
 
 #pragma once
 

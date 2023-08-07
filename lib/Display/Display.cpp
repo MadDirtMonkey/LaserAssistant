@@ -19,27 +19,30 @@ void Display::init()
     for (;;)
       ; // Don't proceed, loop forever
   }
+
+  digitalWrite(BUZZER_PIN, LOW);
 }
 
 void Display::update(float temperature, float flowRate)
 {
   screen.clearDisplay();
+  digitalWrite(BUZZER_PIN, LOW);
 
   screen.setTextSize(1);
   screen.setTextColor(WHITE);
   screen.setCursor(0, 0); // Start at top-left corner
   screen.printf("Temperature: %.2f%cC\n", temperature, (char)247);
-  screen.printf("Flow: %iL/min\n", flowRate);
+  screen.printf("Flow: %.2fL/min\n", flowRate);
   screen.display();
 
   if (temperature > MAX_SAFE_TEMPERATURE)
   {
-    delay(500);
+    delay(500); // TODO: remove this
     showError("Temperature too high");
   }
   if (temperature < MIN_SAFE_TEMPERATURE)
   {
-    delay(500);
+    delay(500); // TODO: remove this
     showError("Temperature too low");
   }
 }
@@ -60,4 +63,5 @@ void Display::showError(const char *errorMessage)
   screen.println(errorMessage);
 
   screen.display();
+  digitalWrite(BUZZER_PIN, HIGH);
 }

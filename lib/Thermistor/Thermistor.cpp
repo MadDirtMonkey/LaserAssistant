@@ -30,7 +30,7 @@ float Thermistor::read()
 {
   // Power up
   digitalWrite(THERMISTOR_POWER_PIN, HIGH);
-  delay(100); // Sleep a bit to let things stabilize
+  delay(100); // Sleep a bit to let things stabilize // TODO: remove this
 
   // Take X (corrected) readings for some noise correction
   for (byte i = 0; i < SAMPLE_COUNT; i++)
